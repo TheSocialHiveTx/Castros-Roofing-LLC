@@ -1,0 +1,1 @@
+// Static site: React entry point disabled.
