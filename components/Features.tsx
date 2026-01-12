@@ -4,11 +4,7 @@ import { Hammer, Shield, Timer, Award, CheckCircle2 } from 'lucide-react';
 import { WARRANTY_YEARS, SHINGLE_LIFE_YEARS } from '../constants';
 
 const features = [
-  {
-    icon: <Timer size={32} className="text-red-600" />,
-    title: "30-Year Lifespan",
-    desc: `We only use high-grade architectural shingles designed to protect your home for ${SHINGLE_LIFE_YEARS} years.`
-  },
+
   {
     icon: <Shield size={32} className="text-red-600" />,
     title: `${WARRANTY_YEARS}-Year Warranty`,
@@ -35,7 +31,7 @@ const Features: React.FC = () => {
           <h3 className="text-4xl lg:text-5xl font-bold text-gray-900">Why Castro's Roofing?</h3>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
           {features.map((f, i) => (
             <div key={i} className="group p-8 rounded-2xl bg-gray-50 hover:bg-white hover:shadow-2xl transition-all duration-300 border border-transparent hover:border-gray-100">
               <div className="mb-6 transform group-hover:scale-110 transition-transform">
@@ -69,9 +65,9 @@ const Features: React.FC = () => {
               </ul>
             </div>
             <div className="relative h-64 md:h-auto">
-              <img 
-                src="https://images.unsplash.com/photo-1505027492977-1037f14c46fa?auto=format&fit=crop&q=80&w=1000" 
-                alt="Roofers working" 
+              <img
+                src="https://images.unsplash.com/photo-1505027492977-1037f14c46fa?auto=format&fit=crop&q=80&w=1000"
+                alt="Roofers working"
                 className="absolute inset-0 w-full h-full object-cover"
               />
             </div>

@@ -1,50 +1,88 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Castro's Roofing LLC - Expert Roofing Services</title>
-    <meta name="description" content="Professional roofing service for Castro's Roofing LLC. Guaranteed pricing under $8,500 for roofs under 3000 sqft.">
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Oswald:wght@400;600;700&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Inter', sans-serif; }
-        h1, h2, h3, .heading-font { font-family: 'Oswald', sans-serif; }
-        
-        @keyframes marquee {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-        .animate-marquee {
-            display: inline-flex;
-            animation: marquee 40s linear infinite;
-        }
-        
-        .fade-in { animation: fadeIn 0.5s ease-in forwards; }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: scale(0.95); }
-            to { opacity: 1; transform: scale(1); }
-        }
 
-        .mobile-menu {
-            transition: max-height 0.3s ease-out;
-            max-height: 0;
-            overflow: hidden;
-        }
-        .mobile-menu.open {
-            max-height: 400px;
-        }
-        
-        /* Custom scrollbar for better aesthetics */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #f1f1f1; }
-        ::-webkit-scrollbar-thumb { background: #D10000; border-radius: 10px; }
-    </style>
-<script type="importmap">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Castro's Roofing LLC - Expert Roofing Services</title>
+  <meta name="description"
+    content="Professional roofing service for Castro's Roofing LLC. Guaranteed pricing under $8,500 for roofs under 3000 sqft.">
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Oswald:wght@400;600;700&display=swap"
+    rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+
+    h1,
+    h2,
+    h3,
+    .heading-font {
+      font-family: 'Oswald', sans-serif;
+    }
+
+    @keyframes marquee {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    .animate-marquee {
+      display: inline-flex;
+      animation: marquee 40s linear infinite;
+    }
+
+    .fade-in {
+      animation: fadeIn 0.5s ease-in forwards;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: scale(0.95);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .mobile-menu {
+      transition: max-height 0.3s ease-out;
+      max-height: 0;
+      overflow: hidden;
+    }
+
+    .mobile-menu.open {
+      max-height: 400px;
+    }
+
+    /* Custom scrollbar for better aesthetics */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #D10000;
+      border-radius: 10px;
+    }
+  </style>
+  <script type="importmap">
 {
   "imports": {
     "@google/genai": "https://esm.sh/@google/genai@^1.34.0",
@@ -55,493 +93,530 @@
 }
 </script>
 </head>
+
 <body class="bg-gray-50 text-gray-900 overflow-x-hidden">
 
-    <!-- Navigation -->
-    <nav class="bg-white shadow-md sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-20">
-                <div class="flex items-center">
-                    <span class="text-2xl font-bold heading-font tracking-tighter">
-                        <span class="text-red-600">CASTRO'S</span> <span class="text-gray-900">ROOFING</span>
-                    </span>
-                </div>
-                
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="#services" class="text-gray-700 hover:text-red-600 font-medium transition">Services</a>
-                    <a href="#special-offer" class="text-gray-700 hover:text-red-600 font-medium transition">Special Offer</a>
-                    <a href="#quote-calculator" class="text-gray-700 hover:text-red-600 font-medium transition">Quick Quote</a>
-                    <a href="#contact" class="bg-red-600 text-white px-6 py-2 rounded-md font-bold hover:bg-red-700 transition">
-                        Get Free Estimate
-                    </a>
-                </div>
-
-                <div class="md:hidden flex items-center">
-                    <button onclick="toggleMenu()" class="text-gray-700 p-2" aria-label="Toggle Menu">
-                        <i data-lucide="menu" id="menu-icon" class="w-7 h-7"></i>
-                        <i data-lucide="x" id="close-icon" class="hidden w-7 h-7"></i>
-                    </button>
-                </div>
-            </div>
+  <!-- Navigation -->
+  <nav class="bg-white shadow-md sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-20">
+        <div class="flex items-center">
+          <span class="text-2xl font-bold heading-font tracking-tighter">
+            <span class="text-red-600">CASTRO'S</span> <span class="text-gray-900">ROOFING</span>
+          </span>
         </div>
 
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="mobile-menu md:hidden bg-white border-t border-gray-100 px-4 space-y-2">
-            <a href="#services" class="block py-3 text-gray-700 font-medium border-b border-gray-50" onclick="toggleMenu()">Services</a>
-            <a href="#special-offer" class="block py-3 text-gray-700 font-medium border-b border-gray-50" onclick="toggleMenu()">Special Offer</a>
-            <a href="#quote-calculator" class="block py-3 text-gray-700 font-medium border-b border-gray-50" onclick="toggleMenu()">Quick Quote</a>
-            <a href="tel:8327644595" class="flex items-center gap-2 py-4 text-red-600 font-bold">
-                <i data-lucide="phone" class="w-5 h-5"></i> (832) 764-4595
-            </a>
-        </div>
-    </nav>
-
-    <main>
-        <!-- Hero Section -->
-        <div class="relative bg-gray-900 overflow-hidden">
-            <div class="absolute inset-0 z-0">
-                <img src="https://images.unsplash.com/photo-1632759162351-375eaa30b777?auto=format&fit=crop&q=80&w=2000" alt="Modern roof shingles" class="w-full h-full object-cover opacity-30">
-                <div class="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-transparent"></div>
-            </div>
-
-            <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
-                <div class="grid lg:grid-cols-2 gap-12 items-center">
-                    <div>
-                        <div class="inline-flex items-center gap-2 bg-red-600/10 border border-red-600/20 text-red-500 px-4 py-1.5 rounded-full text-sm font-bold mb-6">
-                            <i data-lucide="star" class="w-4 h-4" fill="currentColor"></i>
-                            TOP RATED ROOFING EXPERTS
-                        </div>
-                        <h1 class="text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight uppercase">
-                            PROTECTING YOUR HOME WITH <span class="text-red-600">PRECISION.</span>
-                        </h1>
-                        <p class="text-xl text-gray-300 mb-8 max-w-lg">
-                            Expert craftsmanship, high-quality materials, and a price that can't be beat. Join thousands of satisfied homeowners in Houston.
-                        </p>
-                        
-                        <div class="flex flex-col sm:flex-row gap-4">
-                            <a href="#quote-calculator" class="flex items-center justify-center gap-2 bg-red-600 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-red-700 transition transform hover:-translate-y-1 shadow-xl">
-                                Get Your Quote <i data-lucide="arrow-right" class="w-5 h-5"></i>
-                            </a>
-                            <a href="#special-offer" class="flex items-center justify-center gap-2 bg-white text-gray-900 px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition shadow-lg">
-                                View Special Offer
-                            </a>
-                        </div>
-
-                        <div class="mt-12 grid grid-cols-2 gap-6">
-                            <div class="flex items-center gap-3 text-white">
-                                <div class="bg-red-600 p-2 rounded-lg">
-                                    <i data-lucide="shield-check" class="w-6 h-6"></i>
-                                </div>
-                                <div>
-                                    <p class="font-bold text-lg leading-tight uppercase">10-YEAR</p>
-                                    <p class="text-gray-400 text-sm">Warranty</p>
-                                </div>
-                            </div>
-                            <div class="flex items-center gap-3 text-white">
-                                <div class="bg-orange-500 p-2 rounded-lg">
-                                    <i data-lucide="shield-check" class="w-6 h-6"></i>
-                                </div>
-                                <div>
-                                    <p class="font-bold text-lg leading-tight uppercase">30-YEAR</p>
-                                    <p class="text-gray-400 text-sm">Shingle Life</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="hidden lg:block relative">
-                        <div class="bg-white p-8 rounded-2xl shadow-2xl relative">
-                            <div class="absolute -top-6 -right-6 bg-red-600 text-white p-6 rounded-2xl shadow-lg transform rotate-6">
-                                <p class="text-sm font-bold opacity-80 uppercase tracking-tighter">Starting Under</p>
-                                <p class="text-4xl font-black">$8,500</p>
-                            </div>
-                            <img src="https://images.unsplash.com/photo-1516156008625-3a9d6067fab5?auto=format&fit=crop&q=80&w=800" alt="House with new roof" class="rounded-xl mb-6">
-                            <div class="space-y-4">
-                                <h3 class="text-2xl font-bold text-gray-900">Guaranteed Pricing</h3>
-                                <p class="text-gray-600">
-                                    If your roof is under 3000 sqft, you're guaranteed a full replacement for less than $8,500.
-                                </p>
-                                <ul class="space-y-2">
-                                    <li class="flex items-center gap-2 text-sm text-gray-700">
-                                        <div class="w-1.5 h-1.5 bg-red-600 rounded-full"></div>
-                                        30-Year Architectural Shingles Included
-                                    </li>
-                                    <li class="flex items-center gap-2 text-sm text-gray-700">
-                                        <div class="w-1.5 h-1.5 bg-red-600 rounded-full"></div>
-                                        All Labor & Materials Included
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="#services" class="text-gray-700 hover:text-red-600 font-medium transition">Services</a>
+          <a href="#special-offer" class="text-gray-700 hover:text-red-600 font-medium transition">Special Offer</a>
+          <a href="#quote-calculator" class="text-gray-700 hover:text-red-600 font-medium transition">Quick Quote</a>
+          <a href="#contact" class="bg-red-600 text-white px-6 py-2 rounded-md font-bold hover:bg-red-700 transition">
+            Get Free Estimate
+          </a>
         </div>
 
-        <!-- Promo Strip -->
-        <div class="bg-orange-500 py-4 overflow-hidden relative">
-            <div class="whitespace-nowrap animate-marquee flex items-center">
-                <span class="text-white font-black text-xl mx-8 uppercase tracking-widest">🏠 GUARANTEED UNDER $8,500 FOR ROOFS UNDER 3000 SQFT! 🏠</span>
-                <span class="text-white font-black text-xl mx-8 uppercase tracking-widest">🏠 GUARANTEED UNDER $8,500 FOR ROOFS UNDER 3000 SQFT! 🏠</span>
-                <span class="text-white font-black text-xl mx-8 uppercase tracking-widest">🏠 GUARANTEED UNDER $8,500 FOR ROOFS UNDER 3000 SQFT! 🏠</span>
-                <span class="text-white font-black text-xl mx-8 uppercase tracking-widest">🏠 GUARANTEED UNDER $8,500 FOR ROOFS UNDER 3000 SQFT! 🏠</span>
-            </div>
+        <div class="md:hidden flex items-center">
+          <button onclick="toggleMenu()" class="text-gray-700 p-2" aria-label="Toggle Menu">
+            <i data-lucide="menu" id="menu-icon" class="w-7 h-7"></i>
+            <i data-lucide="x" id="close-icon" class="hidden w-7 h-7"></i>
+          </button>
         </div>
+      </div>
+    </div>
 
-        <!-- Features Section -->
-        <section id="services" class="py-24 bg-white">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-16">
-                    <h2 class="text-red-600 font-bold tracking-widest uppercase text-sm mb-3">Excellence Guaranteed</h2>
-                    <h3 class="text-4xl lg:text-5xl font-bold text-gray-900">Why Castro's Roofing?</h3>
-                </div>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu md:hidden bg-white border-t border-gray-100 px-4 space-y-2">
+      <a href="#services" class="block py-3 text-gray-700 font-medium border-b border-gray-50"
+        onclick="toggleMenu()">Services</a>
+      <a href="#special-offer" class="block py-3 text-gray-700 font-medium border-b border-gray-50"
+        onclick="toggleMenu()">Special Offer</a>
+      <a href="#quote-calculator" class="block py-3 text-gray-700 font-medium border-b border-gray-50"
+        onclick="toggleMenu()">Quick Quote</a>
+      <a href="tel:8327644595" class="flex items-center gap-2 py-4 text-red-600 font-bold">
+        <i data-lucide="phone" class="w-5 h-5"></i> (832) 764-4595
+      </a>
+    </div>
+  </nav>
 
-                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 text-center md:text-left">
-                    <div class="group p-8 rounded-2xl bg-gray-50 hover:bg-white hover:shadow-2xl transition-all duration-300 border border-transparent hover:border-gray-100">
-                        <div class="mb-6 transform group-hover:scale-110 transition-transform flex justify-center md:justify-start">
-                            <i data-lucide="timer" class="text-red-600 w-8 h-8"></i>
-                        </div>
-                        <h4 class="text-xl font-bold text-gray-900 mb-4 uppercase">30-Year Lifespan</h4>
-                        <p class="text-gray-600 leading-relaxed">We only use high-grade architectural shingles designed to protect your home for 30 years.</p>
-                    </div>
-                    <div class="group p-8 rounded-2xl bg-gray-50 hover:bg-white hover:shadow-2xl transition-all duration-300 border border-transparent hover:border-gray-100">
-                        <div class="mb-6 transform group-hover:scale-110 transition-transform flex justify-center md:justify-start">
-                            <i data-lucide="shield" class="text-red-600 w-8 h-8"></i>
-                        </div>
-                        <h4 class="text-xl font-bold text-gray-900 mb-4 uppercase">10-Year Warranty</h4>
-                        <p class="text-gray-600 leading-relaxed">Peace of mind comes standard. We stand behind our materials with a robust manufacturer warranty.</p>
-                    </div>
-                    <div class="group p-8 rounded-2xl bg-gray-50 hover:bg-white hover:shadow-2xl transition-all duration-300 border border-transparent hover:border-gray-100">
-                        <div class="mb-6 transform group-hover:scale-110 transition-transform flex justify-center md:justify-start">
-                            <i data-lucide="hammer" class="text-red-600 w-8 h-8"></i>
-                        </div>
-                        <h4 class="text-xl font-bold text-gray-900 mb-4 uppercase">Expert Installation</h4>
-                        <p class="text-gray-600 leading-relaxed">Our crews are highly trained, ensuring every shingle is placed with perfection to withstand harsh weather.</p>
-                    </div>
-                    <div class="group p-8 rounded-2xl bg-gray-50 hover:bg-white hover:shadow-2xl transition-all duration-300 border border-transparent hover:border-gray-100">
-                        <div class="mb-6 transform group-hover:scale-110 transition-transform flex justify-center md:justify-start">
-                            <i data-lucide="award" class="text-red-600 w-8 h-8"></i>
-                        </div>
-                        <h4 class="text-xl font-bold text-gray-900 mb-4 uppercase">Complete Coverage</h4>
-                        <p class="text-gray-600 leading-relaxed">Our quotes aren't just for shingles. We cover all labor, materials, and cleanup. No hidden fees.</p>
-                    </div>
-                </div>
+  <main>
+    <!-- Hero Section -->
+    <div class="relative bg-gray-900 overflow-hidden">
+      <div class="absolute inset-0 z-0">
+        <img src="https://images.unsplash.com/photo-1632759162351-375eaa30b777?auto=format&fit=crop&q=80&w=2000"
+          alt="Modern roof shingles" class="w-full h-full object-cover opacity-30">
+        <div class="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-transparent"></div>
+      </div>
 
-                <div class="mt-20 bg-gray-900 rounded-3xl overflow-hidden shadow-2xl">
-                    <div class="grid md:grid-cols-2">
-                        <div class="p-12 lg:p-20 flex flex-col justify-center">
-                            <h3 class="text-3xl lg:text-4xl font-bold text-white mb-6 uppercase">Built to Outlast the Storm</h3>
-                            <p class="text-gray-400 text-lg mb-8">
-                                Your roof is your home's first line of defense. At Castro's Roofing LLC, we don't just "shingle" a roof; we build a complete weather-protection system.
-                            </p>
-                            <ul class="space-y-4">
-                                <li class="flex items-center gap-3 text-white font-medium">
-                                    <i data-lucide="check-circle-2" class="text-red-500 w-6 h-6"></i>
-                                    Double-layered leak protection
-                                </li>
-                                <li class="flex items-center gap-3 text-white font-medium">
-                                    <i data-lucide="check-circle-2" class="text-red-500 w-6 h-6"></i>
-                                    High-wind resistance shingles
-                                </li>
-                                <li class="flex items-center gap-3 text-white font-medium">
-                                    <i data-lucide="check-circle-2" class="text-red-500 w-6 h-6"></i>
-                                    Complete decking inspection
-                                </li>
-                                <li class="flex items-center gap-3 text-white font-medium">
-                                    <i data-lucide="check-circle-2" class="text-red-500 w-6 h-6"></i>
-                                    Thorough site cleanup & nail sweep
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="relative h-64 md:h-auto">
-                            <img src="https://images.unsplash.com/photo-1505027492977-1037f14c46fa?auto=format&fit=crop&q=80&w=1000" alt="Roofers working" class="absolute inset-0 w-full h-full object-cover">
-                        </div>
-                    </div>
-                </div>
+      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <div
+              class="inline-flex items-center gap-2 bg-red-600/10 border border-red-600/20 text-red-500 px-4 py-1.5 rounded-full text-sm font-bold mb-6">
+              <i data-lucide="star" class="w-4 h-4" fill="currentColor"></i>
+              TOP RATED ROOFING EXPERTS
             </div>
-        </section>
+            <h1 class="text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight uppercase">
+              PROTECTING YOUR HOME WITH <span class="text-red-600">PRECISION.</span>
+            </h1>
+            <p class="text-xl text-gray-300 mb-8 max-w-lg">
+              Expert craftsmanship, high-quality materials, and a price that can't be beat. Join thousands of satisfied
+              homeowners in Houston.
+            </p>
 
-        <!-- Special Offer Section -->
-        <section id="special-offer" class="py-24 bg-red-600 relative overflow-hidden">
-            <div class="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl"></div>
-            <div class="absolute bottom-0 left-0 w-96 h-96 bg-black/10 rounded-full translate-y-1/2 -translate-x-1/2 blur-3xl"></div>
-            
-            <div class="max-w-7xl mx-auto px-4 text-center relative z-10">
-                <h2 class="text-white/80 font-bold uppercase tracking-[0.3em] mb-4">Limited Time Opportunity</h2>
-                <h3 class="text-5xl lg:text-7xl font-black text-white mb-10 leading-none uppercase">
-                    Guaranteed Pricing <br/> Under <span class="text-gray-900 underline decoration-white">$8,500!</span>
-                </h3>
-                <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto text-white">
-                    <div class="bg-white/10 backdrop-blur-md p-8 rounded-3xl border border-white/20">
-                        <p class="text-4xl font-bold mb-2">30-YR</p>
-                        <p class="text-white/70 uppercase text-sm font-bold tracking-widest">Architectural Shingles</p>
-                    </div>
-                    <div class="bg-white/10 backdrop-blur-md p-8 rounded-3xl border border-white/20">
-                        <p class="text-4xl font-bold mb-2">10-YR</p>
-                        <p class="text-white/70 uppercase text-sm font-bold tracking-widest">Manufacturer Warranty</p>
-                    </div>
-                    <div class="bg-white/10 backdrop-blur-md p-8 rounded-3xl border border-white/20">
-                        <p class="text-4xl font-bold mb-2">FULL</p>
-                        <p class="text-white/70 uppercase text-sm font-bold tracking-widest">Labor & Materials</p>
-                    </div>
+            <div class="flex flex-col sm:flex-row gap-4">
+              <a href="#quote-calculator"
+                class="flex items-center justify-center gap-2 bg-red-600 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-red-700 transition transform hover:-translate-y-1 shadow-xl">
+                Get Your Quote <i data-lucide="arrow-right" class="w-5 h-5"></i>
+              </a>
+              <a href="#special-offer"
+                class="flex items-center justify-center gap-2 bg-white text-gray-900 px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition shadow-lg">
+                View Special Offer
+              </a>
+            </div>
+
+            <div class="mt-12 grid grid-cols-2 gap-6">
+              <div class="flex items-center gap-3 text-white">
+                <div class="bg-red-600 p-2 rounded-lg">
+                  <i data-lucide="shield-check" class="w-6 h-6"></i>
                 </div>
-                <p class="mt-12 text-white/80 font-medium text-lg italic">
-                    *Offer applies to standard single-layer tear-off on roofs under 3000 sqft.
+                <div>
+                  <p class="font-bold text-lg leading-tight uppercase">10-YEAR</p>
+                  <p class="text-gray-400 text-sm">Warranty</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="hidden lg:block relative">
+            <div class="bg-white p-8 rounded-2xl shadow-2xl relative">
+              <div class="absolute -top-6 -right-6 bg-red-600 text-white p-6 rounded-2xl shadow-lg transform rotate-6">
+                <p class="text-sm font-bold opacity-80 uppercase tracking-tighter">Starting Under</p>
+                <p class="text-4xl font-black">$8,500</p>
+              </div>
+              <img src="https://images.unsplash.com/photo-1516156008625-3a9d6067fab5?auto=format&fit=crop&q=80&w=800"
+                alt="House with new roof" class="rounded-xl mb-6">
+              <div class="space-y-4">
+                <h3 class="text-2xl font-bold text-gray-900">Guaranteed Pricing</h3>
+                <p class="text-gray-600">
+                  If your roof is under 3000 sqft, you're guaranteed a full replacement for less than $8,500.
                 </p>
-            </div>
-        </section>
-
-        <!-- Calculator Section -->
-        <section id="quote-calculator" class="py-20 bg-gray-50">
-            <div class="max-w-4xl mx-auto px-4">
-                <div class="text-center mb-12">
-                    <h2 class="text-4xl font-bold mb-4 uppercase">Quick Quote Calculator</h2>
-                    <p class="text-gray-600 max-w-2xl mx-auto">
-                        Find out instantly if your project qualifies for our guaranteed $8,500 pricing.
-                    </p>
-                </div>
-
-                <div class="bg-white rounded-3xl shadow-xl overflow-hidden grid md:grid-cols-2 border border-gray-100">
-                    <div class="p-10 bg-gray-900 text-white">
-                        <div class="flex items-center gap-3 mb-6 text-red-500">
-                            <i data-lucide="calculator" class="w-8 h-8"></i>
-                            <h3 class="text-2xl font-bold uppercase tracking-tight">Price Estimate</h3>
-                        </div>
-                        
-                        <div class="space-y-6">
-                            <div>
-                                <label class="block text-sm font-medium text-gray-400 mb-2 uppercase tracking-widest">
-                                    Estimated Roof Size (SQ FT)
-                                </label>
-                                <input 
-                                    id="sqft-input"
-                                    type="number" 
-                                    placeholder="e.g. 2400"
-                                    class="w-full bg-gray-800 border-gray-700 rounded-xl px-4 py-4 text-white focus:ring-2 focus:ring-red-600 focus:border-transparent outline-none transition"
-                                >
-                            </div>
-                            <button 
-                                onclick="calculateQuote()"
-                                class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-4 rounded-xl transition shadow-lg shadow-red-600/20 uppercase"
-                            >
-                                Calculate Now
-                            </button>
-                        </div>
-
-                        <div class="mt-10 flex items-start gap-3 bg-white/5 p-4 rounded-xl border border-white/10">
-                            <i data-lucide="info" class="text-red-500 shrink-0 w-5 h-5"></i>
-                            <p class="text-sm text-gray-400">
-                                Most standard 3-4 bedroom single-story homes fall under 3000 sqft. If you're unsure, we offer free on-site measurements!
-                            </p>
-                        </div>
-                    </div>
-
-                    <div id="calculator-result" class="p-10 flex flex-col justify-center items-center text-center">
-                        <div class="opacity-40">
-                            <img src="https://picsum.photos/seed/roof/200/200" alt="Icon" class="mb-6 rounded-full grayscale">
-                            <p class="text-xl font-medium text-gray-500">Enter your roof size to see your estimated price.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Portfolio -->
-        <section class="py-24 bg-white">
-            <div class="max-w-7xl mx-auto px-4">
-                <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-4">
-                    <div>
-                        <h2 class="text-red-600 font-bold tracking-widest uppercase text-sm mb-3">Our Work</h2>
-                        <h3 class="text-4xl lg:text-5xl font-bold uppercase">Recent Projects</h3>
-                    </div>
-                    <a href="#contact" class="text-gray-900 font-bold flex items-center gap-2 hover:text-red-600 transition group">
-                        Request a Site Visit <div class="w-10 h-0.5 bg-gray-300 group-hover:bg-red-600 transition"></div>
-                    </a>
-                </div>
-
-                <div class="grid md:grid-cols-3 gap-8">
-                    <div class="group relative overflow-hidden rounded-3xl shadow-lg aspect-[4/3]">
-                        <img src="https://images.unsplash.com/photo-1628744448840-55bdb2497bd4?auto=format&fit=crop&q=80&w=800" class="absolute inset-0 w-full h-full object-cover transition duration-500 group-hover:scale-110" alt="Roofing project 1">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-8">
-                            <div class="text-white text-left">
-                                <p class="font-bold text-xl uppercase">Full Replacement</p>
-                                <p class="text-white/70">Houston, TX</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="group relative overflow-hidden rounded-3xl shadow-lg aspect-[4/3]">
-                        <img src="https://images.unsplash.com/photo-1541888941255-276f956f20dd?auto=format&fit=crop&q=80&w=800" class="absolute inset-0 w-full h-full object-cover transition duration-500 group-hover:scale-110" alt="Roofing project 2">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-8">
-                            <div class="text-white text-left">
-                                <p class="font-bold text-xl uppercase">Modern Installation</p>
-                                <p class="text-white/70">Katy, TX</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="group relative overflow-hidden rounded-3xl shadow-lg aspect-[4/3]">
-                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=800" class="absolute inset-0 w-full h-full object-cover transition duration-500 group-hover:scale-110" alt="Roofing project 3">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-8">
-                            <div class="text-white text-left">
-                                <p class="font-bold text-xl uppercase">Quality Finish</p>
-                                <p class="text-white/70">The Woodlands, TX</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="py-24 bg-gray-50 border-t border-gray-100">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="grid lg:grid-cols-2 gap-16">
-                    <div>
-                        <h2 class="text-4xl font-bold mb-6 uppercase">Contact Us Today</h2>
-                        <p class="text-xl text-gray-600 mb-10">
-                            Ready to get started? Reach out via the form, or give us a call directly for an immediate response.
-                        </p>
-
-                        <div class="space-y-8">
-                            <div class="flex items-center gap-6">
-                                <div class="bg-red-600 p-4 rounded-2xl shadow-lg shadow-red-600/20">
-                                    <i data-lucide="phone" class="text-white w-7 h-7"></i>
-                                </div>
-                                <div>
-                                    <p class="text-sm font-bold text-red-600 uppercase tracking-widest">Call or Text</p>
-                                    <a href="tel:8327644595" class="text-2xl font-bold text-gray-900 hover:text-red-600 transition tracking-tighter">(832) 764-4595</a>
-                                </div>
-                            </div>
-
-                            <div class="flex items-center gap-6">
-                                <div class="bg-white p-4 rounded-2xl shadow-sm border border-gray-100">
-                                    <i data-lucide="mail" class="text-gray-900 w-7 h-7"></i>
-                                </div>
-                                <div>
-                                    <p class="text-sm font-bold text-gray-400 uppercase tracking-widest">Email Us</p>
-                                    <a href="mailto:Mr.castro1111@gmail.com" class="text-xl font-bold text-gray-900 hover:text-red-600 transition truncate block max-w-xs md:max-w-none">Mr.castro1111@gmail.com</a>
-                                </div>
-                            </div>
-
-                            <div class="flex items-center gap-6">
-                                <div class="bg-white p-4 rounded-2xl shadow-sm border border-gray-100">
-                                    <i data-lucide="map-pin" class="text-gray-900 w-7 h-7"></i>
-                                </div>
-                                <div>
-                                    <p class="text-sm font-bold text-gray-400 uppercase tracking-widest">Serving</p>
-                                    <p class="text-xl font-bold text-gray-900">Greater Houston & Surrounding Areas</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="bg-white rounded-3xl shadow-xl p-8 md:p-10 border border-gray-100" id="contact-form-container">
-                        <form onsubmit="handleContactSubmit(event)" class="space-y-6">
-                            <div class="grid sm:grid-cols-2 gap-6">
-                                <div>
-                                    <label class="block text-sm font-bold text-gray-700 mb-2 uppercase tracking-wide">Name</label>
-                                    <input type="text" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 focus:ring-2 focus:ring-red-600 outline-none transition" required>
-                                </div>
-                                <div>
-                                    <label class="block text-sm font-bold text-gray-700 mb-2 uppercase tracking-wide">Phone</label>
-                                    <input type="tel" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 focus:ring-2 focus:ring-red-600 outline-none transition" required>
-                                </div>
-                            </div>
-                            <div>
-                                <label class="block text-sm font-bold text-gray-700 mb-2 uppercase tracking-wide">Email</label>
-                                <input type="email" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 focus:ring-2 focus:ring-red-600 outline-none transition" required>
-                            </div>
-                            <div>
-                                <label class="block text-sm font-bold text-gray-700 mb-2 uppercase tracking-wide">Approx. Square Footage</label>
-                                <input type="number" placeholder="Optional" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 focus:ring-2 focus:ring-red-600 outline-none transition">
-                            </div>
-                            <div>
-                                <label class="block text-sm font-bold text-gray-700 mb-2 uppercase tracking-wide">Message</label>
-                                <textarea rows="4" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 focus:ring-2 focus:ring-red-600 outline-none transition" required></textarea>
-                            </div>
-                            <button type="submit" class="w-full bg-red-600 text-white font-bold py-4 rounded-xl text-lg hover:bg-red-700 transition shadow-lg shadow-red-600/30 uppercase">
-                                Request Free Estimate
-                            </button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-16">
-        <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-4 gap-12">
-            <div class="md:col-span-2">
-                <span class="text-3xl font-bold heading-font tracking-tighter mb-6 block uppercase">
-                    <span class="text-red-600">CASTRO'S</span> ROOFING
-                </span>
-                <p class="text-gray-400 mb-8 max-w-md">
-                    Professional roofing services for the Houston area. We specialize in residential roof replacements, repairs, and home improvement with industry-leading pricing.
-                </p>
-                <div class="flex gap-4">
-                    <div class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-red-600 transition cursor-pointer font-bold">f</div>
-                    <div class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-red-600 transition cursor-pointer font-bold">i</div>
-                    <div class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-red-600 transition cursor-pointer font-bold">t</div>
-                </div>
-            </div>
-
-            <div>
-                <h4 class="font-bold text-lg mb-6 uppercase">Quick Links</h4>
-                <ul class="space-y-4 text-gray-400 font-medium">
-                    <li><a href="#services" class="hover:text-white transition">Our Services</a></li>
-                    <li><a href="#special-offer" class="hover:text-white transition">Pricing Offer</a></li>
-                    <li><a href="#quote-calculator" class="hover:text-white transition">Quick Quote</a></li>
-                    <li><a href="#contact" class="hover:text-white transition">Contact Us</a></li>
+                <ul class="space-y-2">
+                  <li class="flex items-center gap-2 text-sm text-gray-700">
+                    <div class="w-1.5 h-1.5 bg-red-600 rounded-full"></div>
+                    Architectural Shingles Included
+                  </li>
+                  <li class="flex items-center gap-2 text-sm text-gray-700">
+                    <div class="w-1.5 h-1.5 bg-red-600 rounded-full"></div>
+                    All Labor & Materials Included
+                  </li>
                 </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Promo Strip -->
+    <div class="bg-orange-500 py-4 overflow-hidden relative">
+      <div class="whitespace-nowrap animate-marquee flex items-center">
+        <span class="text-white font-black text-xl mx-8 uppercase tracking-widest">🏠 GUARANTEED UNDER $8,500 FOR ROOFS
+          UNDER 3000 SQFT! 🏠</span>
+        <span class="text-white font-black text-xl mx-8 uppercase tracking-widest">🏠 GUARANTEED UNDER $8,500 FOR ROOFS
+          UNDER 3000 SQFT! 🏠</span>
+        <span class="text-white font-black text-xl mx-8 uppercase tracking-widest">🏠 GUARANTEED UNDER $8,500 FOR ROOFS
+          UNDER 3000 SQFT! 🏠</span>
+        <span class="text-white font-black text-xl mx-8 uppercase tracking-widest">🏠 GUARANTEED UNDER $8,500 FOR ROOFS
+          UNDER 3000 SQFT! 🏠</span>
+      </div>
+    </div>
+
+    <!-- Features Section -->
+    <section id="services" class="py-24 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-red-600 font-bold tracking-widest uppercase text-sm mb-3">Excellence Guaranteed</h2>
+          <h3 class="text-4xl lg:text-5xl font-bold text-gray-900">Why Castro's Roofing?</h3>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-12 text-center md:text-left">
+
+          <div
+            class="group p-8 rounded-2xl bg-gray-50 hover:bg-white hover:shadow-2xl transition-all duration-300 border border-transparent hover:border-gray-100">
+            <div class="mb-6 transform group-hover:scale-110 transition-transform flex justify-center md:justify-start">
+              <i data-lucide="shield" class="text-red-600 w-8 h-8"></i>
+            </div>
+            <h4 class="text-xl font-bold text-gray-900 mb-4 uppercase">10-Year Warranty</h4>
+            <p class="text-gray-600 leading-relaxed">Peace of mind comes standard. We stand behind our materials with a
+              robust manufacturer warranty.</p>
+          </div>
+          <div
+            class="group p-8 rounded-2xl bg-gray-50 hover:bg-white hover:shadow-2xl transition-all duration-300 border border-transparent hover:border-gray-100">
+            <div class="mb-6 transform group-hover:scale-110 transition-transform flex justify-center md:justify-start">
+              <i data-lucide="hammer" class="text-red-600 w-8 h-8"></i>
+            </div>
+            <h4 class="text-xl font-bold text-gray-900 mb-4 uppercase">Expert Installation</h4>
+            <p class="text-gray-600 leading-relaxed">Our crews are highly trained, ensuring every shingle is placed with
+              perfection to withstand harsh weather.</p>
+          </div>
+          <div
+            class="group p-8 rounded-2xl bg-gray-50 hover:bg-white hover:shadow-2xl transition-all duration-300 border border-transparent hover:border-gray-100">
+            <div class="mb-6 transform group-hover:scale-110 transition-transform flex justify-center md:justify-start">
+              <i data-lucide="award" class="text-red-600 w-8 h-8"></i>
+            </div>
+            <h4 class="text-xl font-bold text-gray-900 mb-4 uppercase">Complete Coverage</h4>
+            <p class="text-gray-600 leading-relaxed">Our quotes aren't just for shingles. We cover all labor, materials,
+              and cleanup. No hidden fees.</p>
+          </div>
+        </div>
+
+        <div class="mt-20 bg-gray-900 rounded-3xl overflow-hidden shadow-2xl">
+          <div class="grid md:grid-cols-2">
+            <div class="p-12 lg:p-20 flex flex-col justify-center">
+              <h3 class="text-3xl lg:text-4xl font-bold text-white mb-6 uppercase">Built to Outlast the Storm</h3>
+              <p class="text-gray-400 text-lg mb-8">
+                Your roof is your home's first line of defense. At Castro's Roofing LLC, we don't just "shingle" a roof;
+                we build a complete weather-protection system.
+              </p>
+              <ul class="space-y-4">
+                <li class="flex items-center gap-3 text-white font-medium">
+                  <i data-lucide="check-circle-2" class="text-red-500 w-6 h-6"></i>
+                  Double-layered leak protection
+                </li>
+                <li class="flex items-center gap-3 text-white font-medium">
+                  <i data-lucide="check-circle-2" class="text-red-500 w-6 h-6"></i>
+                  High-wind resistance shingles
+                </li>
+                <li class="flex items-center gap-3 text-white font-medium">
+                  <i data-lucide="check-circle-2" class="text-red-500 w-6 h-6"></i>
+                  Complete decking inspection
+                </li>
+                <li class="flex items-center gap-3 text-white font-medium">
+                  <i data-lucide="check-circle-2" class="text-red-500 w-6 h-6"></i>
+                  Thorough site cleanup & nail sweep
+                </li>
+              </ul>
+            </div>
+            <div class="relative h-64 md:h-auto">
+              <img src="https://images.unsplash.com/photo-1505027492977-1037f14c46fa?auto=format&fit=crop&q=80&w=1000"
+                alt="Roofers working" class="absolute inset-0 w-full h-full object-cover">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Special Offer Section -->
+    <section id="special-offer" class="py-24 bg-red-600 relative overflow-hidden">
+      <div class="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl">
+      </div>
+      <div
+        class="absolute bottom-0 left-0 w-96 h-96 bg-black/10 rounded-full translate-y-1/2 -translate-x-1/2 blur-3xl">
+      </div>
+
+      <div class="max-w-7xl mx-auto px-4 text-center relative z-10">
+        <h2 class="text-white/80 font-bold uppercase tracking-[0.3em] mb-4">Limited Time Opportunity</h2>
+        <h3 class="text-5xl lg:text-7xl font-black text-white mb-10 leading-none uppercase">
+          Guaranteed Pricing <br /> Under <span class="text-gray-900 underline decoration-white">$8,500!</span>
+        </h3>
+        <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto text-white">
+          <div class="bg-white/10 backdrop-blur-md p-8 rounded-3xl border border-white/20">
+            <p class="text-4xl font-bold mb-2">PREMIUM</p>
+            <p class="text-white/70 uppercase text-sm font-bold tracking-widest">Architectural Shingles</p>
+          </div>
+          <div class="bg-white/10 backdrop-blur-md p-8 rounded-3xl border border-white/20">
+            <p class="text-4xl font-bold mb-2">10-YR</p>
+            <p class="text-white/70 uppercase text-sm font-bold tracking-widest">Manufacturer Warranty</p>
+          </div>
+          <div class="bg-white/10 backdrop-blur-md p-8 rounded-3xl border border-white/20">
+            <p class="text-4xl font-bold mb-2">FULL</p>
+            <p class="text-white/70 uppercase text-sm font-bold tracking-widest">Labor & Materials</p>
+          </div>
+        </div>
+        <p class="mt-12 text-white/80 font-medium text-lg italic">
+          *Offer applies to standard single-layer tear-off on roofs under 3000 sqft.
+        </p>
+      </div>
+    </section>
+
+    <!-- Calculator Section -->
+    <section id="quote-calculator" class="py-20 bg-gray-50">
+      <div class="max-w-4xl mx-auto px-4">
+        <div class="text-center mb-12">
+          <h2 class="text-4xl font-bold mb-4 uppercase">Quick Quote Calculator</h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            Find out instantly if your project qualifies for our guaranteed $8,500 pricing.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-3xl shadow-xl overflow-hidden grid md:grid-cols-2 border border-gray-100">
+          <div class="p-10 bg-gray-900 text-white">
+            <div class="flex items-center gap-3 mb-6 text-red-500">
+              <i data-lucide="calculator" class="w-8 h-8"></i>
+              <h3 class="text-2xl font-bold uppercase tracking-tight">Price Estimate</h3>
             </div>
 
-            <div>
-                <h4 class="font-bold text-lg mb-6 uppercase">Contact Info</h4>
-                <ul class="space-y-4 text-gray-400">
-                    <li>(832) 764-4595</li>
-                    <li>Mr.castro1111@gmail.com</li>
-                    <li>Houston, Texas</li>
-                </ul>
+            <div class="space-y-6">
+              <div>
+                <label class="block text-sm font-medium text-gray-400 mb-2 uppercase tracking-widest">
+                  Estimated Roof Size (SQ FT)
+                </label>
+                <input id="sqft-input" type="number" placeholder="e.g. 2400"
+                  class="w-full bg-gray-800 border-gray-700 rounded-xl px-4 py-4 text-white focus:ring-2 focus:ring-red-600 focus:border-transparent outline-none transition">
+              </div>
+              <button onclick="calculateQuote()"
+                class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-4 rounded-xl transition shadow-lg shadow-red-600/20 uppercase">
+                Calculate Now
+              </button>
             </div>
+
+            <div class="mt-10 flex items-start gap-3 bg-white/5 p-4 rounded-xl border border-white/10">
+              <i data-lucide="info" class="text-red-500 shrink-0 w-5 h-5"></i>
+              <p class="text-sm text-gray-400">
+                Most standard 3-4 bedroom single-story homes fall under 3000 sqft. If you're unsure, we offer free
+                on-site measurements!
+              </p>
+            </div>
+          </div>
+
+          <div id="calculator-result" class="p-10 flex flex-col justify-center items-center text-center">
+            <div class="opacity-40">
+              <img src="https://picsum.photos/seed/roof/200/200" alt="Icon" class="mb-6 rounded-full grayscale">
+              <p class="text-xl font-medium text-gray-500">Enter your roof size to see your estimated price.</p>
+            </div>
+          </div>
         </div>
-        <div class="max-w-7xl mx-auto px-4 mt-16 pt-8 border-t border-white/5 text-center text-gray-500 text-sm">
-            &copy; <span id="year"></span> Castro's Roofing LLC. All rights reserved.
+      </div>
+    </section>
+
+    <!-- Portfolio -->
+    <section class="py-24 bg-white">
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-4">
+          <div>
+            <h2 class="text-red-600 font-bold tracking-widest uppercase text-sm mb-3">Our Work</h2>
+            <h3 class="text-4xl lg:text-5xl font-bold uppercase">Recent Projects</h3>
+          </div>
+          <a href="#contact"
+            class="text-gray-900 font-bold flex items-center gap-2 hover:text-red-600 transition group">
+            Request a Site Visit <div class="w-10 h-0.5 bg-gray-300 group-hover:bg-red-600 transition"></div>
+          </a>
         </div>
-    </footer>
 
-    <!-- Vanilla Javascript Logic -->
-    <script>
-        // Initialize Lucide icons
-        lucide.createIcons();
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="group relative overflow-hidden rounded-3xl shadow-lg aspect-[4/3]">
+            <img src="https://images.unsplash.com/photo-1628744448840-55bdb2497bd4?auto=format&fit=crop&q=80&w=800"
+              class="absolute inset-0 w-full h-full object-cover transition duration-500 group-hover:scale-110"
+              alt="Roofing project 1">
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-8">
+              <div class="text-white text-left">
+                <p class="font-bold text-xl uppercase">Full Replacement</p>
+                <p class="text-white/70">Houston, TX</p>
+              </div>
+            </div>
+          </div>
+          <div class="group relative overflow-hidden rounded-3xl shadow-lg aspect-[4/3]">
+            <img src="https://images.unsplash.com/photo-1541888941255-276f956f20dd?auto=format&fit=crop&q=80&w=800"
+              class="absolute inset-0 w-full h-full object-cover transition duration-500 group-hover:scale-110"
+              alt="Roofing project 2">
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-8">
+              <div class="text-white text-left">
+                <p class="font-bold text-xl uppercase">Modern Installation</p>
+                <p class="text-white/70">Katy, TX</p>
+              </div>
+            </div>
+          </div>
+          <div class="group relative overflow-hidden rounded-3xl shadow-lg aspect-[4/3]">
+            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=800"
+              class="absolute inset-0 w-full h-full object-cover transition duration-500 group-hover:scale-110"
+              alt="Roofing project 3">
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-8">
+              <div class="text-white text-left">
+                <p class="font-bold text-xl uppercase">Quality Finish</p>
+                <p class="text-white/70">The Woodlands, TX</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        // Set Current Year for footer
-        document.getElementById('year').textContent = new Date().getFullYear();
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 bg-gray-50 border-t border-gray-100">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-16">
+          <div>
+            <h2 class="text-4xl font-bold mb-6 uppercase">Contact Us Today</h2>
+            <p class="text-xl text-gray-600 mb-10">
+              Ready to get started? Reach out via the form, or give us a call directly for an immediate response.
+            </p>
 
-        // Mobile Menu Toggle
-        function toggleMenu() {
-            const menu = document.getElementById('mobile-menu');
-            const menuIcon = document.getElementById('menu-icon');
-            const closeIcon = document.getElementById('close-icon');
-            
-            menu.classList.toggle('open');
-            menuIcon.classList.toggle('hidden');
-            closeIcon.classList.toggle('hidden');
-        }
+            <div class="space-y-8">
+              <div class="flex items-center gap-6">
+                <div class="bg-red-600 p-4 rounded-2xl shadow-lg shadow-red-600/20">
+                  <i data-lucide="phone" class="text-white w-7 h-7"></i>
+                </div>
+                <div>
+                  <p class="text-sm font-bold text-red-600 uppercase tracking-widest">Call or Text</p>
+                  <a href="tel:8327644595"
+                    class="text-2xl font-bold text-gray-900 hover:text-red-600 transition tracking-tighter">(832)
+                    764-4595</a>
+                </div>
+              </div>
 
-        // Quote Calculator Logic
-        function calculateQuote() {
-            const input = document.getElementById('sqft-input');
-            const resultContainer = document.getElementById('calculator-result');
-            const sqftValue = input.value.trim();
-            const sqft = parseFloat(sqftValue);
+              <div class="flex items-center gap-6">
+                <div class="bg-white p-4 rounded-2xl shadow-sm border border-gray-100">
+                  <i data-lucide="mail" class="text-gray-900 w-7 h-7"></i>
+                </div>
+                <div>
+                  <p class="text-sm font-bold text-gray-400 uppercase tracking-widest">Email Us</p>
+                  <a href="mailto:Mr.castro1111@gmail.com"
+                    class="text-xl font-bold text-gray-900 hover:text-red-600 transition truncate block max-w-xs md:max-w-none">Mr.castro1111@gmail.com</a>
+                </div>
+              </div>
 
-            if (!sqftValue || isNaN(sqft) || sqft <= 0) {
-                alert('Please enter a valid roof size in square feet.');
-                return;
-            }
+              <div class="flex items-center gap-6">
+                <div class="bg-white p-4 rounded-2xl shadow-sm border border-gray-100">
+                  <i data-lucide="map-pin" class="text-gray-900 w-7 h-7"></i>
+                </div>
+                <div>
+                  <p class="text-sm font-bold text-gray-400 uppercase tracking-widest">Serving</p>
+                  <p class="text-xl font-bold text-gray-900">Greater Houston & Surrounding Areas</p>
+                </div>
+              </div>
+            </div>
+          </div>
 
-            if (sqft <= 3000) {
-                resultContainer.innerHTML = `
+          <div class="bg-white rounded-3xl shadow-xl p-8 md:p-10 border border-gray-100" id="contact-form-container">
+            <form onsubmit="handleContactSubmit(event)" class="space-y-6">
+              <div class="grid sm:grid-cols-2 gap-6">
+                <div>
+                  <label class="block text-sm font-bold text-gray-700 mb-2 uppercase tracking-wide">Name</label>
+                  <input type="text"
+                    class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 focus:ring-2 focus:ring-red-600 outline-none transition"
+                    required>
+                </div>
+                <div>
+                  <label class="block text-sm font-bold text-gray-700 mb-2 uppercase tracking-wide">Phone</label>
+                  <input type="tel"
+                    class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 focus:ring-2 focus:ring-red-600 outline-none transition"
+                    required>
+                </div>
+              </div>
+              <div>
+                <label class="block text-sm font-bold text-gray-700 mb-2 uppercase tracking-wide">Email</label>
+                <input type="email"
+                  class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 focus:ring-2 focus:ring-red-600 outline-none transition"
+                  required>
+              </div>
+              <div>
+                <label class="block text-sm font-bold text-gray-700 mb-2 uppercase tracking-wide">Approx. Square
+                  Footage</label>
+                <input type="number" placeholder="Optional"
+                  class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 focus:ring-2 focus:ring-red-600 outline-none transition">
+              </div>
+              <div>
+                <label class="block text-sm font-bold text-gray-700 mb-2 uppercase tracking-wide">Message</label>
+                <textarea rows="4"
+                  class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 focus:ring-2 focus:ring-red-600 outline-none transition"
+                  required></textarea>
+              </div>
+              <button type="submit"
+                class="w-full bg-red-600 text-white font-bold py-4 rounded-xl text-lg hover:bg-red-700 transition shadow-lg shadow-red-600/30 uppercase">
+                Request Free Estimate
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-16">
+    <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-4 gap-12">
+      <div class="md:col-span-2">
+        <span class="text-3xl font-bold heading-font tracking-tighter mb-6 block uppercase">
+          <span class="text-red-600">CASTRO'S</span> ROOFING
+        </span>
+        <p class="text-gray-400 mb-8 max-w-md">
+          Professional roofing services for the Houston area. We specialize in residential roof replacements, repairs,
+          and home improvement with industry-leading pricing.
+        </p>
+        <div class="flex gap-4">
+          <div
+            class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-red-600 transition cursor-pointer font-bold">
+            f</div>
+          <div
+            class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-red-600 transition cursor-pointer font-bold">
+            i</div>
+          <div
+            class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-red-600 transition cursor-pointer font-bold">
+            t</div>
+        </div>
+      </div>
+
+      <div>
+        <h4 class="font-bold text-lg mb-6 uppercase">Quick Links</h4>
+        <ul class="space-y-4 text-gray-400 font-medium">
+          <li><a href="#services" class="hover:text-white transition">Our Services</a></li>
+          <li><a href="#special-offer" class="hover:text-white transition">Pricing Offer</a></li>
+          <li><a href="#quote-calculator" class="hover:text-white transition">Quick Quote</a></li>
+          <li><a href="#contact" class="hover:text-white transition">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="font-bold text-lg mb-6 uppercase">Contact Info</h4>
+        <ul class="space-y-4 text-gray-400">
+          <li>(832) 764-4595</li>
+          <li>Mr.castro1111@gmail.com</li>
+          <li>Houston, Texas</li>
+        </ul>
+      </div>
+    </div>
+    <div class="max-w-7xl mx-auto px-4 mt-16 pt-8 border-t border-white/5 text-center text-gray-500 text-sm">
+      &copy; <span id="year"></span> Castro's Roofing LLC. All rights reserved.
+    </div>
+  </footer>
+
+  <!-- Vanilla Javascript Logic -->
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Set Current Year for footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mobile Menu Toggle
+    function toggleMenu() {
+      const menu = document.getElementById('mobile-menu');
+      const menuIcon = document.getElementById('menu-icon');
+      const closeIcon = document.getElementById('close-icon');
+
+      menu.classList.toggle('open');
+      menuIcon.classList.toggle('hidden');
+      closeIcon.classList.toggle('hidden');
+    }
+
+    // Quote Calculator Logic
+    function calculateQuote() {
+      const input = document.getElementById('sqft-input');
+      const resultContainer = document.getElementById('calculator-result');
+      const sqftValue = input.value.trim();
+      const sqft = parseFloat(sqftValue);
+
+      if (!sqftValue || isNaN(sqft) || sqft <= 0) {
+        alert('Please enter a valid roof size in square feet.');
+        return;
+      }
+
+      if (sqft <= 3000) {
+        resultContainer.innerHTML = `
                     <div class="fade-in">
                         <div class="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
                             <i data-lucide="check" class="w-10 h-10"></i>
@@ -556,8 +631,8 @@
                         </a>
                     </div>
                 `;
-            } else {
-                resultContainer.innerHTML = `
+      } else {
+        resultContainer.innerHTML = `
                     <div class="fade-in">
                         <div class="w-20 h-20 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center mx-auto mb-6">
                             <i data-lucide="info" class="w-10 h-10"></i>
@@ -571,16 +646,16 @@
                         </div>
                     </div>
                 `;
-            }
-            // Re-run lucide to fix icons in the newly injected HTML
-            lucide.createIcons();
-        }
+      }
+      // Re-run lucide to fix icons in the newly injected HTML
+      lucide.createIcons();
+    }
 
-        // Simple Contact Form Handling
-        function handleContactSubmit(e) {
-            e.preventDefault();
-            const container = document.getElementById('contact-form-container');
-            container.innerHTML = `
+    // Simple Contact Form Handling
+    function handleContactSubmit(e) {
+      e.preventDefault();
+      const container = document.getElementById('contact-form-container');
+      container.innerHTML = `
                 <div class="text-center py-16 fade-in">
                     <div class="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
                         <i data-lucide="send" class="w-10 h-10"></i>
@@ -595,8 +670,9 @@
                     </button>
                 </div>
             `;
-            lucide.createIcons();
-        }
-    </script>
+      lucide.createIcons();
+    }
+  </script>
 </body>
+
 </html>
