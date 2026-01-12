@@ -46,6 +46,35 @@
         .mobile-menu.open {
             max-height: 400px;
         }
+
+        /* Modal Animation */
+        #service-modal {
+            transition: opacity 0.3s ease, visibility 0.3s;
+        }
+
+        #service-modal.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        #service-modal:not(.hidden) {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+
+        #service-modal-content {
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        #service-modal.hidden #service-modal-content {
+            transform: scale(0.95) translateY(10px);
+        }
+
+        #service-modal:not(.hidden) #service-modal-content {
+            transform: scale(1) translateY(0);
+        }
     </style>
 </head>
 
@@ -100,7 +129,7 @@
         <div class="grid md:grid-cols-2 gap-12">
             <!-- Service 1 -->
             <div
-                class="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition border border-gray-100 p-8 md:p-12">
+                class="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition border border-gray-100 p-8 md:p-12 flex flex-col items-start">
                 <div class="mb-6 bg-red-50 w-20 h-20 rounded-2xl flex items-center justify-center">
                     <i data-lucide="home" class="w-12 h-12 text-red-600"></i>
                 </div>
@@ -108,7 +137,7 @@
                 <p class="text-gray-600 mb-8 leading-relaxed">Complete roof replacements for your home. We use
                     high-quality architectural shingles that enhance your curb appeal and provide lasting protection.
                 </p>
-                <ul class="space-y-3 mb-8">
+                <ul class="space-y-3 mb-8 w-full">
                     <li class="flex items-center gap-3 text-gray-700 font-medium">
                         <div class="w-2 h-2 bg-red-600 rounded-full"></div>Architectural Shingles
                     </li>
@@ -116,20 +145,25 @@
                         <div class="w-2 h-2 bg-red-600 rounded-full"></div>Leak Barrier Protection
                     </li>
                 </ul>
-                <a href="index.html#contact"
-                    class="inline-flex items-center gap-2 text-red-600 font-bold hover:text-red-700 transition uppercase tracking-wide">Get
-                    an Estimate <i data-lucide="arrow-right" class="w-5 h-5"></i></a>
+                <div class="mt-auto flex gap-4 w-full">
+                    <button onclick="openModal('residential')"
+                        class="flex-1 bg-gray-100 text-gray-900 font-bold py-3 rounded-xl hover:bg-gray-200 transition uppercase tracking-wide text-sm">More
+                        Details</button>
+                    <a href="index.html#contact"
+                        class="flex-1 bg-red-600 text-white font-bold py-3 rounded-xl hover:bg-red-700 transition uppercase tracking-wide text-sm text-center">Get
+                        Estimate</a>
+                </div>
             </div>
             <!-- Service 2 -->
             <div
-                class="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition border border-gray-100 p-8 md:p-12">
+                class="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition border border-gray-100 p-8 md:p-12 flex flex-col items-start">
                 <div class="mb-6 bg-red-50 w-20 h-20 rounded-2xl flex items-center justify-center">
                     <i data-lucide="hammer" class="w-12 h-12 text-red-600"></i>
                 </div>
                 <h3 class="text-2xl font-bold text-gray-900 mb-4">Roof Repairs</h3>
                 <p class="text-gray-600 mb-8 leading-relaxed">From storm damage to minor leaks, our team can quickly
                     assess and fix issues to prevent further damage to your home's interior.</p>
-                <ul class="space-y-3 mb-8">
+                <ul class="space-y-3 mb-8 w-full">
                     <li class="flex items-center gap-3 text-gray-700 font-medium">
                         <div class="w-2 h-2 bg-red-600 rounded-full"></div>Leak Detection
                     </li>
@@ -137,20 +171,25 @@
                         <div class="w-2 h-2 bg-red-600 rounded-full"></div>Storm Damage Repair
                     </li>
                 </ul>
-                <a href="index.html#contact"
-                    class="inline-flex items-center gap-2 text-red-600 font-bold hover:text-red-700 transition uppercase tracking-wide">Get
-                    an Estimate <i data-lucide="arrow-right" class="w-5 h-5"></i></a>
+                <div class="mt-auto flex gap-4 w-full">
+                    <button onclick="openModal('repairs')"
+                        class="flex-1 bg-gray-100 text-gray-900 font-bold py-3 rounded-xl hover:bg-gray-200 transition uppercase tracking-wide text-sm">More
+                        Details</button>
+                    <a href="index.html#contact"
+                        class="flex-1 bg-red-600 text-white font-bold py-3 rounded-xl hover:bg-red-700 transition uppercase tracking-wide text-sm text-center">Get
+                        Estimate</a>
+                </div>
             </div>
             <!-- Service 3 -->
             <div
-                class="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition border border-gray-100 p-8 md:p-12">
+                class="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition border border-gray-100 p-8 md:p-12 flex flex-col items-start">
                 <div class="mb-6 bg-red-50 w-20 h-20 rounded-2xl flex items-center justify-center">
                     <i data-lucide="clipboard-check" class="w-12 h-12 text-red-600"></i>
                 </div>
                 <h3 class="text-2xl font-bold text-gray-900 mb-4">Roof Inspections</h3>
                 <p class="text-gray-600 mb-8 leading-relaxed">Detailed assessments of your roof's condition. Perfect for
                     real estate transactions or checking for storm damage.</p>
-                <ul class="space-y-3 mb-8">
+                <ul class="space-y-3 mb-8 w-full">
                     <li class="flex items-center gap-3 text-gray-700 font-medium">
                         <div class="w-2 h-2 bg-red-600 rounded-full"></div>Free for Homeowners
                     </li>
@@ -158,20 +197,25 @@
                         <div class="w-2 h-2 bg-red-600 rounded-full"></div>Comprehensive Report
                     </li>
                 </ul>
-                <a href="index.html#contact"
-                    class="inline-flex items-center gap-2 text-red-600 font-bold hover:text-red-700 transition uppercase tracking-wide">Request
-                    Inspection <i data-lucide="arrow-right" class="w-5 h-5"></i></a>
+                <div class="mt-auto flex gap-4 w-full">
+                    <button onclick="openModal('inspections')"
+                        class="flex-1 bg-gray-100 text-gray-900 font-bold py-3 rounded-xl hover:bg-gray-200 transition uppercase tracking-wide text-sm">More
+                        Details</button>
+                    <a href="index.html#contact"
+                        class="flex-1 bg-red-600 text-white font-bold py-3 rounded-xl hover:bg-red-700 transition uppercase tracking-wide text-sm text-center">Request
+                        Inspection</a>
+                </div>
             </div>
             <!-- Service 4 -->
             <div
-                class="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition border border-gray-100 p-8 md:p-12">
+                class="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition border border-gray-100 p-8 md:p-12 flex flex-col items-start">
                 <div class="mb-6 bg-red-50 w-20 h-20 rounded-2xl flex items-center justify-center">
                     <i data-lucide="shield" class="w-12 h-12 text-red-600"></i>
                 </div>
                 <h3 class="text-2xl font-bold text-gray-900 mb-4">Gutters & Siding</h3>
                 <p class="text-gray-600 mb-8 leading-relaxed">Complete your home's exterior protection with our gutter
                     and siding services. We ensure proper water diversion and aesthetic appeal.</p>
-                <ul class="space-y-3 mb-8">
+                <ul class="space-y-3 mb-8 w-full">
                     <li class="flex items-center gap-3 text-gray-700 font-medium">
                         <div class="w-2 h-2 bg-red-600 rounded-full"></div>Seamless Gutters
                     </li>
@@ -179,9 +223,14 @@
                         <div class="w-2 h-2 bg-red-600 rounded-full"></div>Vinyl Siding
                     </li>
                 </ul>
-                <a href="index.html#contact"
-                    class="inline-flex items-center gap-2 text-red-600 font-bold hover:text-red-700 transition uppercase tracking-wide">Get
-                    an Estimate <i data-lucide="arrow-right" class="w-5 h-5"></i></a>
+                <div class="mt-auto flex gap-4 w-full">
+                    <button onclick="openModal('gutters')"
+                        class="flex-1 bg-gray-100 text-gray-900 font-bold py-3 rounded-xl hover:bg-gray-200 transition uppercase tracking-wide text-sm">More
+                        Details</button>
+                    <a href="index.html#contact"
+                        class="flex-1 bg-red-600 text-white font-bold py-3 rounded-xl hover:bg-red-700 transition uppercase tracking-wide text-sm text-center">Get
+                        Estimate</a>
+                </div>
             </div>
         </div>
     </div>
@@ -228,6 +277,33 @@
             <span id="year"></span> Castro's Roofing LLC. All rights reserved.</div>
     </footer>
 
+    <!-- Service Details Modal -->
+    <div id="service-modal"
+        class="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 hidden backdrop-blur-sm"
+        onclick="handleBackdropClick(event)">
+        <div id="service-modal-content"
+            class="bg-white rounded-3xl w-full max-w-2xl max-h-[90vh] overflow-y-auto shadow-2xl">
+            <div class="relative p-8 md:p-10">
+                <button onclick="closeModal()"
+                    class="absolute top-6 right-6 p-2 rounded-full bg-gray-100 hover:bg-gray-200 transition text-gray-600">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+
+                <div id="modal-content-container">
+                    <!-- Content will be injected here -->
+                </div>
+
+                <div class="mt-8 pt-6 border-t border-gray-100 flex justify-end">
+                    <button onclick="closeModal()"
+                        class="mr-4 px-6 py-3 rounded-xl font-bold text-gray-600 hover:bg-gray-50 transition uppercase tracking-wide text-sm">Close</button>
+                    <a href="index.html#contact"
+                        class="bg-red-600 text-white px-8 py-3 rounded-xl font-bold hover:bg-red-700 transition uppercase tracking-wide text-sm shadow-lg shadow-red-600/20">Get
+                        Quote</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
         lucide.createIcons();
         document.getElementById('year').textContent = new Date().getFullYear();
@@ -239,6 +315,110 @@
             menuIcon.classList.toggle('hidden');
             closeIcon.classList.toggle('hidden');
         }
+
+        // Modal Data
+        const serviceData = {
+            residential: {
+                title: "Residential Roofing",
+                icon: "home",
+                description: "We provide comprehensive residential roofing services designed to protect your home and enhance its value. Whether you need a complete replacement or a new installation, our team ensures the job is done right.",
+                details: [
+                    "<strong>Materials:</strong> We install industry-leading architectual shingles like GAF Timberline HDZ, known for their durability and attractive appearance.",
+                    "<strong>Installation Process:</strong> Our process includes a complete tear-off of old materials, inspection of decking for rot, installation of ice & water shields, synthetic underlayment, and proper ventilation systems.",
+                    "<strong>Ventilation:</strong> Proper attic ventilation is crucial. We install ridge vents and ensure soffit intake is adequate to extend the life of your new shingles.",
+                    "<strong>Cleanup:</strong> We use magnetic rollers to clear nails and debris, leaving your yard cleaner than we found it."
+                ]
+            },
+            repairs: {
+                title: "Roof Repairs",
+                icon: "hammer",
+                description: "Don't let a small leak turn into a major problem. Our repair experts can diagnose and seal leaks quickly, utilizing materials that match your existing roof as closely as possible.",
+                details: [
+                    "<strong>Leak Detection:</strong> We trace leaks to their source, whether it's a damaged shingle, a compromised pipe boot, or flashing issues.",
+                    "<strong>Common Fixes:</strong> We routinely repair pipe jack boots (a common failure point), reseal flashing around chimneys and walls, and replace wind-damaged shingles.",
+                    "<strong>Emergency Services:</strong> We offer tarping and emergency repairs to prevent water damage immediately after a storm.",
+                    "<strong>Honest Assessment:</strong> If a repair will suffice, we'll tell you. We won't push for a replacement if your roof still has life in it."
+                ]
+            },
+            inspections: {
+                title: "Roof Inspections",
+                icon: "clipboard-check",
+                description: "Detailed, honest assessments of your roof's condition. We provide you with the information you need to make informed decisions about maintenance and repairs.",
+                details: [
+                    "<strong>Comprehensive Check:</strong> We examine the condition of shingles (granule loss, cracking), flashing integrity, pipe boots, and gutter attachment.",
+                    "<strong>Real Estate:</strong> Buying or selling a home? We provide detailed inspection reports to satisfy buyer/seller requirements.",
+                    "<strong>Storm Damage:</strong> suspect hail or wind damage? We can identify subtle signs of storm damage that might warrant an insurance claim.",
+                    "<strong>No Obligation:</strong> Our standard inspections for homeowners are free and come with no obligation to purchase services."
+                ]
+            },
+            gutters: {
+                title: "Gutters & Siding",
+                icon: "shield",
+                description: "Your roof relies on a good drainage system. We install high-quality seamless gutters and durable siding to complete your home's exterior armor.",
+                details: [
+                    "<strong>Seamless Gutters:</strong> custom-fabricated on-site to fit your home perfectly, reducing leak points. Available in 5\" and 6\" sizes.",
+                    "<strong>Gutter Guards:</strong> We offer leaf protection systems to keep your gutters flowing freely and reduce maintenance.",
+                    "<strong>Vinyl Siding:</strong> Low-maintenance, durable, and available in a wide variety of colors to boost curb appeal.",
+                    "<strong>Fascia & Soffit:</strong> We repair and replace rotten fascia boards and install vented soffits to ensure your roof system breathes properly."
+                ]
+            }
+        };
+
+        function openModal(serviceId) {
+            const modal = document.getElementById('service-modal');
+            const container = document.getElementById('modal-content-container');
+            const data = serviceData[serviceId];
+
+            if (!data) return;
+
+            // Generate Content
+            let detailsHtml = data.details.map(item => `<li class="relative pl-6 mb-3 text-gray-600"><span class="absolute left-0 top-2 w-2 h-2 bg-red-600 rounded-full"></span><span>${item}</span></li>`).join('');
+
+            container.innerHTML = `
+            <div class="flex items-center gap-4 mb-6">
+                <div class="bg-red-50 p-3 rounded-xl">
+                    <i data-lucide="${data.icon}" class="w-8 h-8 text-red-600"></i>
+                </div>
+                <h2 class="text-3xl font-bold text-gray-900 heading-font uppercase">${data.title}</h2>
+            </div>
+            <p class="text-lg text-gray-600 mb-8 leading-relaxed font-medium">
+                ${data.description}
+            </p>
+            <div class="bg-gray-50 rounded-2xl p-6 md:p-8">
+                <h3 class="font-bold text-gray-900 uppercase tracking-widest text-sm mb-4">Service Highlights</h3>
+                <ul class="space-y-1">
+                    ${detailsHtml}
+                </ul>
+            </div>
+        `;
+
+            // Refresh icons
+            lucide.createIcons();
+
+            // Show Modal
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('service-modal');
+            modal.classList.add('hidden');
+            document.body.style.overflow = ''; // Restore scrolling
+        }
+
+        function handleBackdropClick(event) {
+            if (event.target.id === 'service-modal') {
+                closeModal();
+            }
+        }
+
+        // Close on Escape key
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+
     </script>
 </body>
 
