@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Castro's Roofing LLC</title>
+    <meta name="description"
+        content="Browse our portfolio of completed roofing projects in Houston, Katy, and The Woodlands.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Oswald:wght@400;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        h1,
+        h2,
+        h3,
+        .heading-font {
+            font-family: 'Oswald', sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #D10000;
+            border-radius: 10px;
+        }
+
+        .mobile-menu {
+            transition: max-height 0.3s ease-out;
+            max-height: 0;
+            overflow: hidden;
+        }
+
+        .mobile-menu.open {
+            max-height: 400px;
+        }
+
+        .fade-in {
+            animation: fadeIn 0.5s ease-in forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-gray-900 overflow-x-hidden">
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl font-bold heading-font tracking-tighter">
+                        <span class="text-red-600">CASTRO'S</span> <span class="text-gray-900">ROOFING</span>
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-700 hover:text-red-600 font-medium transition">Home</a>
+                    <a href="services.html" class="text-gray-700 hover:text-red-600 font-medium transition">Services</a>
+                    <a href="gallery.html" class="text-red-600 font-medium transition">Gallery</a>
+                    <a href="faq.html" class="text-gray-700 hover:text-red-600 font-medium transition">FAQ</a>
+                    <a href="index.html#contact"
+                        class="bg-red-600 text-white px-6 py-2 rounded-md font-bold hover:bg-red-700 transition">
+                        Get Free Estimate
+                    </a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button onclick="toggleMenu()" class="text-gray-700 p-2"><i data-lucide="menu" id="menu-icon"
+                            class="w-7 h-7"></i><i data-lucide="x" id="close-icon" class="hidden w-7 h-7"></i></button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="mobile-menu md:hidden bg-white border-t border-gray-100 px-4 space-y-2">
+            <a href="index.html" class="block py-3 text-gray-700 font-medium border-b border-gray-50">Home</a>
+            <a href="services.html" class="block py-3 text-gray-700 font-medium border-b border-gray-50">Services</a>
+            <a href="gallery.html" class="block py-3 text-red-600 font-medium border-b border-gray-50">Gallery</a>
+            <a href="faq.html" class="block py-3 text-gray-700 font-medium border-b border-gray-50">FAQ</a>
+            <a href="tel:8327644595" class="flex items-center gap-2 py-4 text-red-600 font-bold"><i data-lucide="phone"
+                    class="w-5 h-5"></i> (832) 764-4595</a>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <div class="pt-20 bg-gray-900 text-white py-20 px-4 text-center">
+        <div class="max-w-7xl mx-auto">
+            <h1 class="text-4xl md:text-6xl font-black uppercase mb-6">Project Gallery</h1>
+            <p class="text-xl text-gray-400 max-w-2xl mx-auto">See our craftsmanship in action. From simple repairs to
+                complete transformations.</p>
+        </div>
+    </div>
+
+    <!-- Gallery Section -->
+    <div class="py-20 px-4 max-w-7xl mx-auto">
+
+        <!-- Filters -->
+        <div class="flex flex-wrap justify-center gap-4 mb-16" id="filters">
+            <button onclick="filterGallery('all')"
+                class="filter-btn active px-6 py-2 rounded-full font-bold uppercase tracking-wide transition bg-red-600 text-white shadow-lg shadow-red-600/20"
+                data-filter="all">All</button>
+            <button onclick="filterGallery('residential')"
+                class="filter-btn px-6 py-2 rounded-full font-bold uppercase tracking-wide transition bg-white text-gray-600 hover:bg-gray-100 border border-gray-200"
+                data-filter="residential">Residential</button>
+            <button onclick="filterGallery('commercial')"
+                class="filter-btn px-6 py-2 rounded-full font-bold uppercase tracking-wide transition bg-white text-gray-600 hover:bg-gray-100 border border-gray-200"
+                data-filter="commercial">Commercial</button>
+            <button onclick="filterGallery('repairs')"
+                class="filter-btn px-6 py-2 rounded-full font-bold uppercase tracking-wide transition bg-white text-gray-600 hover:bg-gray-100 border border-gray-200"
+                data-filter="repairs">Repairs</button>
+        </div>
+
+        <!-- Grid -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="gallery-grid">
+
+            <!-- Item 1 -->
+            <div class="gallery-item group relative overflow-hidden rounded-2xl shadow-xl aspect-[4/3] cursor-pointer bg-gray-100"
+                data-category="residential">
+                <img src="https://images.unsplash.com/photo-1632759162351-375eaa30b777?auto=format&fit=crop&q=80&w=1200"
+                    alt="Modern Shingle Replacement"
+                    class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                <div
+                    class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-8">
+                    <span class="text-red-500 font-bold text-sm uppercase tracking-widest mb-2">Residential</span>
+                    <h3 class="text-white text-2xl font-bold uppercase leading-none mb-1">Modern Shingle Replacement
+                    </h3>
+                    <p class="text-gray-400 text-sm">Houston, TX</p>
+                </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="gallery-item group relative overflow-hidden rounded-2xl shadow-xl aspect-[4/3] cursor-pointer bg-gray-100"
+                data-category="residential">
+                <img src="https://images.unsplash.com/photo-1516156008625-3a9d6067fab5?auto=format&fit=crop&q=80&w=1200"
+                    alt="Full Roof Restoration"
+                    class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                <div
+                    class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-8">
+                    <span class="text-red-500 font-bold text-sm uppercase tracking-widest mb-2">Residential</span>
+                    <h3 class="text-white text-2xl font-bold uppercase leading-none mb-1">Full Roof Restoration</h3>
+                    <p class="text-gray-400 text-sm">Katy, TX</p>
+                </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="gallery-item group relative overflow-hidden rounded-2xl shadow-xl aspect-[4/3] cursor-pointer bg-gray-100"
+                data-category="commercial">
+                <img src="https://images.unsplash.com/photo-1505027492977-1037f14c46fa?auto=format&fit=crop&q=80&w=1200"
+                    alt="Apartment Complex Repair"
+                    class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                <div
+                    class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-8">
+                    <span class="text-red-500 font-bold text-sm uppercase tracking-widest mb-2">Commercial</span>
+                    <h3 class="text-white text-2xl font-bold uppercase leading-none mb-1">Apartment Complex Repair</h3>
+                    <p class="text-gray-400 text-sm">Sugar Land, TX</p>
+                </div>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="gallery-item group relative overflow-hidden rounded-2xl shadow-xl aspect-[4/3] cursor-pointer bg-gray-100"
+                data-category="residential">
+                <img src="https://images.unsplash.com/photo-1541888941255-276f956f20dd?auto=format&fit=crop&q=80&w=1200"
+                    alt="Custom Installation"
+                    class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                <div
+                    class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-8">
+                    <span class="text-red-500 font-bold text-sm uppercase tracking-widest mb-2">Residential</span>
+                    <h3 class="text-white text-2xl font-bold uppercase leading-none mb-1">Custom Installation</h3>
+                    <p class="text-gray-400 text-sm">The Woodlands, TX</p>
+                </div>
+            </div>
+
+            <!-- Item 5 -->
+            <div class="gallery-item group relative overflow-hidden rounded-2xl shadow-xl aspect-[4/3] cursor-pointer bg-gray-100"
+                data-category="repairs">
+                <img src="https://images.unsplash.com/photo-1628744448840-55bdb2497bd4?auto=format&fit=crop&q=80&w=1200"
+                    alt="Leak Repair"
+                    class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                <div
+                    class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-8">
+                    <span class="text-red-500 font-bold text-sm uppercase tracking-widest mb-2">Repairs</span>
+                    <h3 class="text-white text-2xl font-bold uppercase leading-none mb-1">Leak Repair & Inspection</h3>
+                    <p class="text-gray-400 text-sm">Houston, TX</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="bg-gray-50 py-20 px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl font-bold mb-6 uppercase">Inspired by our work?</h2>
+            <p className="text-gray-600 mb-8 max-w-xl mx-auto">Let's create something beautiful for your home. Contact
+                us today for a free estimate.</p>
+            <a href="index.html#contact"
+                class="inline-block bg-red-600 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-red-700 transition shadow-lg shadow-red-600/20 uppercase">Get
+                Your Quote</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-4 gap-12">
+            <div class="md:col-span-2">
+                <span class="text-3xl font-bold heading-font tracking-tighter mb-6 block uppercase"><span
+                        class="text-red-600">CASTRO'S</span> ROOFING</span>
+                <p class="text-gray-400 mb-8 max-w-md">Professional roofing services for the Houston area.</p>
+            </div>
+            <div>
+                <h4 class="font-bold text-lg mb-6 uppercase">Quick Links</h4>
+                <ul class="space-y-4 text-gray-400 font-medium">
+                    <li><a href="index.html" class="hover:text-white transition">Home</a></li>
+                    <li><a href="services.html" class="hover:text-white transition">Our Services</a></li>
+                    <li><a href="gallery.html" class="hover:text-white transition">Gallery</a></li>
+                    <li><a href="faq.html" class="hover:text-white transition">FAQ</a></li>
+                    <li><a href="index.html#contact" class="hover:text-white transition">Contact Us</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold text-lg mb-6 uppercase">Contact Info</h4>
+                <ul class="space-y-4 text-gray-400">
+                    <li>(832) 764-4595</li>
+                    <li>Mr.castro1111@gmail.com</li>
+                    <li>Houston, Texas</li>
+                </ul>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 mt-16 pt-8 border-t border-white/5 text-center text-gray-500 text-sm">&copy;
+            <span id="year"></span> Castro's Roofing LLC. All rights reserved.</div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+        document.getElementById('year').textContent = new Date().getFullYear();
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const menuIcon = document.getElementById('menu-icon');
+            const closeIcon = document.getElementById('close-icon');
+            menu.classList.toggle('open');
+            menuIcon.classList.toggle('hidden');
+            closeIcon.classList.toggle('hidden');
+        }
+
+        // Gallery Filter Logic
+        function filterGallery(category) {
+            // Update Buttons
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                if (btn.dataset.filter === category) {
+                    btn.classList.remove('bg-white', 'text-gray-600', 'border-gray-200');
+                    btn.classList.add('bg-red-600', 'text-white', 'shadow-lg', 'shadow-red-600/20');
+                } else {
+                    btn.classList.add('bg-white', 'text-gray-600', 'border-gray-200');
+                    btn.classList.remove('bg-red-600', 'text-white', 'shadow-lg', 'shadow-red-600/20');
+                }
+            });
+
+            // Filter Items
+            const items = document.querySelectorAll('.gallery-item');
+            items.forEach(item => {
+                if (category === 'all' || item.dataset.category === category) {
+                    item.style.display = 'block';
+                    item.classList.add('fade-in');
+                } else {
+                    item.style.display = 'none';
+                    item.classList.remove('fade-in');
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>

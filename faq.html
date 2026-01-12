@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Castro's Roofing LLC</title>
+    <meta name="description"
+        content="Frequently asked questions about our roofing services, warranties, and insurance claims.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Oswald:wght@400;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        h1,
+        h2,
+        h3,
+        .heading-font {
+            font-family: 'Oswald', sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #D10000;
+            border-radius: 10px;
+        }
+
+        .mobile-menu {
+            transition: max-height 0.3s ease-out;
+            max-height: 0;
+            overflow: hidden;
+        }
+
+        .mobile-menu.open {
+            max-height: 400px;
+        }
+
+        details>summary {
+            list-style: none;
+        }
+
+        details>summary::-webkit-details-marker {
+            display: none;
+        }
+
+        details[open] summary~* {
+            animation: sweep .5s ease-in-out;
+        }
+
+        @keyframes sweep {
+            0% {
+                opacity: 0;
+                transform: translateY(-10px)
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-gray-900 overflow-x-hidden">
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl font-bold heading-font tracking-tighter">
+                        <span class="text-red-600">CASTRO'S</span> <span class="text-gray-900">ROOFING</span>
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-700 hover:text-red-600 font-medium transition">Home</a>
+                    <a href="services.html" class="text-gray-700 hover:text-red-600 font-medium transition">Services</a>
+                    <a href="gallery.html" class="text-gray-700 hover:text-red-600 font-medium transition">Gallery</a>
+                    <a href="faq.html" class="text-red-600 font-medium transition">FAQ</a>
+                    <a href="index.html#contact"
+                        class="bg-red-600 text-white px-6 py-2 rounded-md font-bold hover:bg-red-700 transition">
+                        Get Free Estimate
+                    </a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button onclick="toggleMenu()" class="text-gray-700 p-2"><i data-lucide="menu" id="menu-icon"
+                            class="w-7 h-7"></i><i data-lucide="x" id="close-icon" class="hidden w-7 h-7"></i></button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="mobile-menu md:hidden bg-white border-t border-gray-100 px-4 space-y-2">
+            <a href="index.html" class="block py-3 text-gray-700 font-medium border-b border-gray-50">Home</a>
+            <a href="services.html" class="block py-3 text-gray-700 font-medium border-b border-gray-50">Services</a>
+            <a href="gallery.html" class="block py-3 text-gray-700 font-medium border-b border-gray-50">Gallery</a>
+            <a href="faq.html" class="block py-3 text-red-600 font-medium border-b border-gray-50">FAQ</a>
+            <a href="tel:8327644595" class="flex items-center gap-2 py-4 text-red-600 font-bold"><i data-lucide="phone"
+                    class="w-5 h-5"></i> (832) 764-4595</a>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <div class="pt-20 bg-gray-900 text-white py-20 px-4 text-center">
+        <div class="max-w-7xl mx-auto">
+            <h1 class="text-4xl md:text-6xl font-black uppercase mb-6">Frequently Asked Questions</h1>
+            <p class="text-xl text-gray-400 max-w-2xl mx-auto">Answers to common questions about roofing, insurance, and
+                our process.</p>
+        </div>
+    </div>
+
+    <!-- FAQ Section -->
+    <div class="py-20 px-4 max-w-4xl mx-auto">
+        <div class="space-y-4">
+
+            <!-- Q1 -->
+            <details
+                class="group border border-gray-200 rounded-xl overflow-hidden bg-white shadow-sm hover:shadow-md transition">
+                <summary
+                    class="flex justify-between items-center p-6 cursor-pointer bg-white group-hover:bg-gray-50 transition">
+                    <span class="font-bold text-lg text-gray-900 pr-8">How long does a typical roof replacement
+                        take?</span>
+                    <span class="text-red-600 transition-transform duration-300 group-open:rotate-45">
+                        <i data-lucide="plus" class="w-6 h-6"></i>
+                    </span>
+                </summary>
+                <div class="p-6 pt-0 text-gray-600 leading-relaxed border-t border-transparent">
+                    Most standard residential roof replacements are completed in 1-2 days. Factors like weather, roof
+                    size, and complexity can affect this timeline, but we strive to minimize disruption to your
+                    schedule.
+                </div>
+            </details>
+
+            <!-- Q2 -->
+            <details
+                class="group border border-gray-200 rounded-xl overflow-hidden bg-white shadow-sm hover:shadow-md transition">
+                <summary
+                    class="flex justify-between items-center p-6 cursor-pointer bg-white group-hover:bg-gray-50 transition">
+                    <span class="font-bold text-lg text-gray-900 pr-8">Do you offer warranties on your work?</span>
+                    <span class="text-red-600 transition-transform duration-300 group-open:rotate-45">
+                        <i data-lucide="plus" class="w-6 h-6"></i>
+                    </span>
+                </summary>
+                <div class="p-6 pt-0 text-gray-600 leading-relaxed border-t border-transparent">
+                    Yes! We provide a 10-year workmanship warranty on all full roof replacements. Additionally, we use
+                    high-quality materials that come with their own manufacturer warranties, typically ranging from 25
+                    years to lifetime coverage.
+                </div>
+            </details>
+
+            <!-- Q3 -->
+            <details
+                class="group border border-gray-200 rounded-xl overflow-hidden bg-white shadow-sm hover:shadow-md transition">
+                <summary
+                    class="flex justify-between items-center p-6 cursor-pointer bg-white group-hover:bg-gray-50 transition">
+                    <span class="font-bold text-lg text-gray-900 pr-8">Will my insurance cover the cost of a new
+                        roof?</span>
+                    <span class="text-red-600 transition-transform duration-300 group-open:rotate-45">
+                        <i data-lucide="plus" class="w-6 h-6"></i>
+                    </span>
+                </summary>
+                <div class="p-6 pt-0 text-gray-600 leading-relaxed border-t border-transparent">
+                    If your roof has been damaged by a storm (wind, hail, falling debris), your homeowners insurance
+                    policy may cover the replacement. We have extensive experience working with insurance adjusters and
+                    can help guide you through the claims process.
+                </div>
+            </details>
+
+            <!-- Q4 -->
+            <details
+                class="group border border-gray-200 rounded-xl overflow-hidden bg-white shadow-sm hover:shadow-md transition">
+                <summary
+                    class="flex justify-between items-center p-6 cursor-pointer bg-white group-hover:bg-gray-50 transition">
+                    <span class="font-bold text-lg text-gray-900 pr-8">How do I know if I need a repair or a full
+                        replacement?</span>
+                    <span class="text-red-600 transition-transform duration-300 group-open:rotate-45">
+                        <i data-lucide="plus" class="w-6 h-6"></i>
+                    </span>
+                </summary>
+                <div class="p-6 pt-0 text-gray-600 leading-relaxed border-t border-transparent">
+                    Age and extent of damage are key factors. If your roof is over 20 years old or has widespread
+                    damage, replacement is often more cost-effective. Minor leaks or missing shingles on a newer roof
+                    can usually be repaired. We offer free inspections to give you an honest assessment.
+                </div>
+            </details>
+
+            <!-- Q5 -->
+            <details
+                class="group border border-gray-200 rounded-xl overflow-hidden bg-white shadow-sm hover:shadow-md transition">
+                <summary
+                    class="flex justify-between items-center p-6 cursor-pointer bg-white group-hover:bg-gray-50 transition">
+                    <span class="font-bold text-lg text-gray-900 pr-8">Do I need to be home during the
+                        installation?</span>
+                    <span class="text-red-600 transition-transform duration-300 group-open:rotate-45">
+                        <i data-lucide="plus" class="w-6 h-6"></i>
+                    </span>
+                </summary>
+                <div class="p-6 pt-0 text-gray-600 leading-relaxed border-t border-transparent">
+                    You strictly don't need to be home, but we recommend being reachable by phone. We do ask that
+                    vehicles be moved from the driveway.
+                </div>
+            </details>
+        </div>
+    </div>
+
+    <div class="bg-red-600 text-white py-16 px-4">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
+            <div>
+                <div class="flex items-center gap-3 mb-2">
+                    <i data-lucide="help-circle" class="w-8 h-8 opacity-80"></i>
+                    <h3 class="text-2xl font-bold uppercase">Still have questions?</h3>
+                </div>
+                <p class="text-white/80 max-w-md">We're here to help! Give us a call or send us an email.</p>
+            </div>
+            <a href="index.html#contact"
+                class="bg-white text-red-600 px-8 py-4 rounded-xl font-bold uppercase hover:bg-gray-100 transition shadow-lg">Contact
+                Support</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-4 gap-12">
+            <div class="md:col-span-2">
+                <span class="text-3xl font-bold heading-font tracking-tighter mb-6 block uppercase"><span
+                        class="text-red-600">CASTRO'S</span> ROOFING</span>
+                <p class="text-gray-400 mb-8 max-w-md">Professional roofing services for the Houston area.</p>
+            </div>
+            <div>
+                <h4 class="font-bold text-lg mb-6 uppercase">Quick Links</h4>
+                <ul class="space-y-4 text-gray-400 font-medium">
+                    <li><a href="index.html" class="hover:text-white transition">Home</a></li>
+                    <li><a href="services.html" class="hover:text-white transition">Our Services</a></li>
+                    <li><a href="gallery.html" class="hover:text-white transition">Gallery</a></li>
+                    <li><a href="faq.html" class="hover:text-white transition">FAQ</a></li>
+                    <li><a href="index.html#contact" class="hover:text-white transition">Contact Us</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold text-lg mb-6 uppercase">Contact Info</h4>
+                <ul class="space-y-4 text-gray-400">
+                    <li>(832) 764-4595</li>
+                    <li>Mr.castro1111@gmail.com</li>
+                    <li>Houston, Texas</li>
+                </ul>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 mt-16 pt-8 border-t border-white/5 text-center text-gray-500 text-sm">&copy;
+            <span id="year"></span> Castro's Roofing LLC. All rights reserved.</div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+        document.getElementById('year').textContent = new Date().getFullYear();
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const menuIcon = document.getElementById('menu-icon');
+            const closeIcon = document.getElementById('close-icon');
+            menu.classList.toggle('open');
+            menuIcon.classList.toggle('hidden');
+            closeIcon.classList.toggle('hidden');
+        }
+    </script>
+</body>
+
+</html>
