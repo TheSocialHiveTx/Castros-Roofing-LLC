@@ -6,8 +6,8 @@ import { getRoofingResponse } from '../services/geminiService';
 const ChatBot: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [input, setInput] = useState('');
-  const [messages, setMessages] = useState<{role: 'user' | 'bot', text: string}[]>([
-    { role: 'bot', text: 'Hi! I\'m the Castro\'s Roofing assistant. How can I help you today? Ask me about our $8,500 special or our 30-year shingles!' }
+  const [messages, setMessages] = useState<{ role: 'user' | 'bot', text: string }[]>([
+    { role: 'bot', text: 'Hi! I\'m the Castro\'s Roofing assistant. How can I help you today? Ask me about our roofing services or request an estimate!' }
   ]);
   const [isLoading, setIsLoading] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -34,7 +34,7 @@ const ChatBot: React.FC = () => {
   return (
     <div className="fixed bottom-6 right-6 z-50">
       {/* Trigger Button */}
-      <button 
+      <button
         onClick={() => setIsOpen(!isOpen)}
         className="w-16 h-16 bg-red-600 text-white rounded-full shadow-2xl flex items-center justify-center hover:bg-red-700 transition transform hover:scale-105"
       >
@@ -57,11 +57,10 @@ const ChatBot: React.FC = () => {
           <div ref={scrollRef} className="flex-1 p-4 overflow-y-auto space-y-4 bg-gray-50">
             {messages.map((msg, i) => (
               <div key={i} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-                <div className={`max-w-[85%] p-3 rounded-2xl text-sm ${
-                  msg.role === 'user' 
-                    ? 'bg-red-600 text-white rounded-tr-none' 
+                <div className={`max-w-[85%] p-3 rounded-2xl text-sm ${msg.role === 'user'
+                    ? 'bg-red-600 text-white rounded-tr-none'
                     : 'bg-white text-gray-800 shadow-sm border border-gray-100 rounded-tl-none'
-                }`}>
+                  }`}>
                   {msg.text}
                 </div>
               </div>
@@ -77,15 +76,15 @@ const ChatBot: React.FC = () => {
 
           <div className="p-4 border-t border-gray-100 bg-white">
             <div className="flex gap-2">
-              <input 
-                type="text" 
+              <input
+                type="text"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyPress={(e) => e.key === 'Enter' && handleSend()}
                 placeholder="Type your question..."
                 className="flex-1 bg-gray-50 border border-gray-200 rounded-xl px-4 py-2 text-sm outline-none focus:ring-2 focus:ring-red-600 transition"
               />
-              <button 
+              <button
                 onClick={handleSend}
                 disabled={isLoading}
                 className="bg-red-600 text-white p-2 rounded-xl hover:bg-red-700 transition disabled:opacity-50"
